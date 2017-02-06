@@ -12,6 +12,8 @@ android {
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
+
+    buildConfigField "String", "API", "\"http://swapi.co/api/\""
   }
 
   buildTypes {
@@ -42,4 +44,7 @@ dependencies {
   compile 'org.jetbrains.anko:anko-sdk15:0.9' // sdk19, sdk21, sdk23 are also available
   compile 'org.jetbrains.anko:anko-support-v4:0.9' // In case you need support-v4 bindings
   compile 'org.jetbrains.anko:anko-appcompat-v7:0.9' // For appcompat-v7 bindings
+
+  compile 'com.squareup.retrofit2:retrofit:2.1.0'
+  compile "com.squareup.retrofit2:converter-moshi:2.1.0"
 }
