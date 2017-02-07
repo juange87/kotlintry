@@ -12,12 +12,12 @@ class GetPeopleByIdUseCase {
         doAsync {
             val person: Person = repository.getPersonById(personId)
             uiThread {
-                callback.onPeople(person)
+                callback.onSuccess(person)
             }
         }
     }
 
-    public interface Callback<Person> {
-        public fun onPeople(personApiModel: com.juange.kotlintry.domain.model.Person)
+    interface Callback<T> {
+        fun onSuccess(result: T)
     }
 }
