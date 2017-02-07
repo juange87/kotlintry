@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.juange.kotlintry.R
-import com.juange.kotlintry.data.api.People
-import com.juange.kotlintry.domain.GetPeopeByIdUseCase
+import com.juange.kotlintry.domain.GetPeopleByIdUseCase
+import com.juange.kotlintry.domain.model.Person
 
 class MainActivity : AppCompatActivity() {
 
-    val getPeopleUseCase: GetPeopeByIdUseCase = GetPeopeByIdUseCase()
+    val getPeopleUseCase: GetPeopleByIdUseCase = GetPeopleByIdUseCase()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        getPeopleUseCase.getPersonById("1", object : GetPeopeByIdUseCase.Callback <People> {
-            override fun onPeople(people: People) = toastMSg(people.name)
+        getPeopleUseCase.getPersonById("1", object : GetPeopleByIdUseCase.Callback <Person> {
+            override fun onPeople(person: Person) = toastMsg(person.name)
         })
     }
 
-    fun toastMSg(name: String?) {
+    fun toastMsg(name: String?) {
         Toast.makeText(this, name, Toast.LENGTH_LONG).show()
     }
 }
