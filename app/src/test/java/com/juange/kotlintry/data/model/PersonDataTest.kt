@@ -5,7 +5,7 @@ import org.junit.Test
 
 class PersonDataTest{
     val FAKE_PERSON_NAME = "Manolo"
-    
+
     @Test
     fun testMap() {
         val personData = createFakePersonData()

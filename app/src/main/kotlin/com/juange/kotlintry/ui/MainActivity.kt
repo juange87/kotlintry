@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         getPeopleUseCase.getPersonById("1", object : GetPeopleByIdUseCase.Callback <Person> {
-            override fun onSuccess(person: Person) = toastMsg(person.name)
+            override fun onSuccess(result: Person) = toastMsg(result.name)
         })
     }
 
